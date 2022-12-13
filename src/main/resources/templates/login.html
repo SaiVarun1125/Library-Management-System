@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+	 
+	<th:block th:replace="fragments/styles :: commo"></th:block>
+	
+</head>
+
+
+<style>
+body {
+  background: #ffffff;
+}
+.form-style input {
+  border: 0;
+  height: 49px;
+  border-radius: 0;
+  border-bottom: 1.2px solid #ebebeb;
+}
+.form-style input:focus {
+  border-bottom: 1.2px solid #007bff;
+  box-shadow: none;
+  outline: 0;
+  background-color: #ebebeb;
+}
+.sideline {
+  display: flex;
+  width: 99.99%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ccc;
+}
+button {
+  height: 49px;
+}
+.sideline:before,
+.sideline:after {
+  content: "";
+  border-top: 1.2px solid #ebebeb;
+  margin: 0 20.2px 0 0;
+  flex: 1.2 0 20.2px;
+}
+ 
+.sideline:after {
+  margin: 0 0 0 20.2px;
+}
+ 
+</style>
+
+<body >
+
+
+<div class="container">
+  <div class="row m-5 no-gutters shadow-lg">
+    <div class="col-md-6 d-none d-md-block">
+      <img src="../resources/mplates/cabin.png" th:src="@{images/library.webp}" class="img-fluid" style="min-height:100%;" />
+    </div>
+    <div class="col-md-6 bg-white p-5">
+      <section class="login_content">
+				  <form th:action="@{/login}" method="post" id="loginform">
+					<h1>Login Form</h1>
+					<div>
+					  <input type="text" class="form-control" placeholder="username" name="username" />
+					</div>
+					<div>
+					  <input type="password" class="form-control" placeholder="password" name="password" />
+					</div>
+					<div>
+					  <a class="btn btn-default submit" href="javascript:void(0)" onclick="document.getElementById('loginform').submit();">Log in</a>
+					</div>
+					
+					 <div class="container-fluid text-center">
+					   <div class="container"><small>Copyright &copy; Your Website 2022</small></div>
+					   
+					<div class="clearfix"></div>
+	  
+					<div class="separator">
+	  
+					  <div class="clearfix"></div>
+					  <br />
+					  <div>
+					  <h1><i class="fa fa-book"></i>  LMS</h1>
+					  </div>
+					</div>
+				  </form>
+				</section>
+ 
+    </div>
+  </div>
+</div>
+                    
+                
+
+     
+  </body>
+</html>

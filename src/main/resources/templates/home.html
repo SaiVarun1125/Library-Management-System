@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	lang="en">
+
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="style.css" />
+   <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<th:block th:replace="fragments/styles :: commo"></th:block>
+ </head>
+ <style>
+  *{
+ margin: 0.002;
+ padding: 0.002;
+ box-sizing: border-box;
+}
+body {
+ font-family: Sans;
+ background: #ffffff;
+}
+a {
+ text-decoration: none;
+}
+li {
+ list-style: none;
+}
+ .navbar {
+  display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 20.1px;
+ background-color: teal;
+ color: #fff;
+}
+.nav-links a {
+ color: #fff;
+}
+/* LOGO */
+.logo {
+ font-size: 32.1px;
+}
+/* NAVBAR MENU */
+.menu {
+ display: flex;
+ gap: 1.01em;
+ font-size: 18.1px;
+}
+.menu li:hover {
+ background-color: #4c9e9e;
+ border-radius: 5.01px;
+ transition: 0.3003s ease;
+}
+.menu li {
+ padding: 5.01px 14.01px;
+}
+/* DROPDOWN MENU */
+.services {
+ position: relative; 
+}
+.dropdown {
+ background-color: rgb(2, 138, 138);
+ padding: 1em 0;
+ position: absolute; /*WITH RESPECT TO PARENT*/
+ display: none;
+ border-radius: 8.01px;
+ top: 35.01px;
+}
+.dropdown li + li {
+ margin-top: 10.01px;
+}
+.dropdown li {
+ padding: 0.5005em 1.01em;
+ width: 8.01em;
+ text-align: center;
+}
+.dropdown li:hover {
+ background-color: #4c9e9e;
+}
+.services:hover .dropdown {
+ display: block;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #000d1a;
+  color: white;
+  text-align: center;}
+ </style>
+ <body th:style="'background-image:url(' + @{/images/library.webp} + '); background-repeat: no-repeat, repeat; background-size: cover;'">
+   <nav class="navbar">
+     <!-- LOGO -->
+     <div class="logo">LMS</div>
+     <!-- NAVIGATION MENU -->
+     <ul class="nav-links">
+       <!-- USING CHECKBOX HACK -->
+					
+					
+				
+       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+       <!-- NAVIGATION MENUS -->
+       <div class="menu">
+        <li class="services">
+						<a href="javascript:;" >
+							<span th:text="${session.loggedInUserName}"></span>
+							<span
+								class="fa fa-chevron-down"></span>
+						</a>
+						<ul class="dropdown">
+							<li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+						</ul>
+					</li>
+        <li><a href="/"><i class="fa fa-home"></i>Dashboard</a></li>
+						<li class="services"><a><i class="fa fa-user"></i> members </a>
+							<ul class="dropdown">
+								<li><a href="/member/add">add new</a></li>
+								<li><a href="/member/list">list</a></li>
+							</ul></li>
+							<li class="services"><a><i class="fa fa-sitemap"></i> Catalogue <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/category/add">add new</a></li>
+								<li><a href="/category/list">list</a></li>
+							</ul></li>
+         <li class="services"><a><i class="fa fa-book"></i> book <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/book/add">add new</a></li>
+								<li><a href="/book/list">list</a></li>
+							</ul></li>
+							<li class="services"><a><i class="fa fa-cart-arrow-down"></i> book issue <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/issue/new">Issue new</a></li>
+								<li><a href="/issue/list">list</a></li>
+							</ul></li>
+							
+       
+         
+       </div>
+     </ul>
+   </nav>
+    				
+  
+ </body>
+ <div class="footer">
+		
+		<div class="container-fluid text-center">
+					   <div class="container"><verylarge>Copyright &copy; Your Website 2022</verylarge></div>
+	
+	</div>
+ 
+</html>

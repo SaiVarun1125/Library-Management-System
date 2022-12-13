@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	lang="en">
+
+ <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+   <title>Document</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <th:block th:replace="fragments/styles :: commo"></th:block>
+<th:block th:replace="fragments/styles :: datatable"></th:block>
+</head>
+		 <style>
+  *{
+ margin: 0.002;
+ padding: 0.002;
+ box-sizing: border-box;
+}
+body {
+ font-family: Sans;
+  background: #ffffff;
+}
+a {
+ text-decoration: none;
+}
+li {
+ list-style: none;
+}
+ .navbar {
+  display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 20.1px;
+ background-color: teal;
+ color: #fff;
+}
+.nav-links a {
+ color: #fff;
+}
+/* LOGO */
+.logo {
+ font-size: 32.1px;
+}
+/* NAVBAR MENU */
+.menu {
+ display: flex;
+ gap: 1.01em;
+ font-size: 18.1px;
+}
+.menu li:hover {
+ background-color: #4c9e9e;
+ border-radius: 5.01px;
+ transition: 0.3003s ease;
+}
+.menu li {
+ padding: 5.01px 14.01px;
+}
+/* DROPDOWN MENU */
+.services {
+ position: relative; 
+}
+.dropdown {
+ background-color: rgb(2, 138, 138);
+ padding: 1em 0;
+ position: absolute; /*WITH RESPECT TO PARENT*/
+ display: none;
+ border-radius: 8.01px;
+ top: 35.01px;
+}
+.dropdown li + li {
+ margin-top: 10.01px;
+}
+.dropdown li {
+ padding: 0.5005em 1.01em;
+ width: 8.01em;
+ text-align: center;
+}
+.dropdown li:hover {
+ background-color: #4c9e9e;
+}
+.services:hover .dropdown {
+ display: block;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #000d1a;
+  color: white;
+  text-align: center;}
+ 
+.form-style input {
+  border: 0;
+  height: 49px;
+  border-radius: 0;
+  border-bottom: 1.2px solid #ebebeb;
+}
+.form-style input:focus {
+  border-bottom: 1.2px solid #007bff;
+  box-shadow: none;
+  outline: 0;
+  background-color: #ebebeb;
+}
+.sideline {
+  display: flex;
+  width: 99.99%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ccc;
+}
+button {
+  height: 49px;
+}
+.sideline:before,
+.sideline:after {
+  content: "";
+  border-top: 1.2px solid #ebebeb;
+  margin: 0 20.2px 0 0;
+  flex: 1.2 0 20.2px;
+}
+ 
+.sideline:after {
+  margin: 0 0 0 20.2px;
+}
+ </style>
+<body class="nav-md">
+	
+	
+ <nav class="navbar">
+     <!-- LOGO -->
+     <div class="logo">LMS</div>
+     <!-- NAVIGATION MENU -->
+     <ul class="nav-links">
+       <!-- USING CHECKBOX HACK -->
+					
+					
+				
+       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+       <!-- NAVIGATION MENUS -->
+       <div class="menu">
+       <li class="services">
+						<a href="javascript:;" >
+							<span th:text="${session.loggedInUserName}"></span>
+							<span
+								class="fa fa-chevron-down"></span>
+						</a>
+						<ul class="dropdown">
+							<li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+						</ul>
+					</li>
+        <li><a href="/"><i class="fa fa-home"></i>Dashboard</a></li>
+						<li class="services"><a><i class="fa fa-user"></i> members<span
+								class="fa fa-chevron-down"></span> </a>
+							<ul class="dropdown">
+								<li><a href="/member/add">add new</a></li>
+								<li><a href="/member/list">list</a></li>
+							</ul></li>
+							<li class="services"><a><i class="fa fa-sitemap"></i> Catalogue <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/category/add">add new</a></li>
+								<li><a href="/category/list">list</a></li>
+							</ul></li>
+         <li class="services"><a><i class="fa fa-book"></i> book <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/book/add">add new</a></li>
+								<li><a href="/book/list">list</a></li>
+							</ul></li>
+							<li class="services"><a><i class="fa fa-cart-arrow-down"></i> book issue <span
+								class="fa fa-chevron-down"></span></a>
+							<ul class="dropdown">
+								<li><a href="/issue/new">Issue new</a></li>
+								<li><a href="/issue/list">list</a></li>
+							</ul></li>
+							
+       
+         
+       </div>
+     </ul>
+   </nav>
+   
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div class="container">
+    <div class="row m-5 no-gutters shadow-lg">
+    <div class="col-md-6 d-none d-md-block">
+      <img src="../resources/mplates/cabin.png" th:src="@{../images/library.webp}"  class="img-fluid" style="min-height:50%;" />
+      </div>
+    <div class="col-md-6 bg-white p-5">
+		
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>List of Categories</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+						
+							<div class="alert alert-success alert-dismissible fade in" role="alert" th:if="${categoryInUse}">
+                   			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	                    	<span>Category has related book(s), can't be deleted.</span>
+	                    	</div>
+						
+							<table id="datatable"
+								class="table table-striped table-bordered">
+								<thead>
+									<tr>
+										<th style="width: 200px;">Category</th>
+										<th style="width: 50px;">short</th>
+										<th>Notes</th>
+										<th style="width: 50px;">actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="c : ${categories}">
+										<td th:text="${c.name}"></td>
+										<td th:text="${c.shortName}"></td>
+										<td th:text="${c.notes}"></td>
+										<td>
+											<a th:href="@{'/category/edit/' + ${c.id}}"><i class="fa fa-edit"></i></a>
+											<a data-toggle="modal" data-target=".remove-category-modal" onclick="removeCategoryDialog(this);"
+											th:data-category-id="${c.id}" th:data-category-name="${c.name}" style="cursor: pointer;">
+												<i class="fa fa-remove"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			
+			<!-- /page content -->
+
+			<div class="modal fade remove-category-modal" tabindex="-1"
+				role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+							<h4 class="modal-title">remove Category</h4>
+						</div>
+						<div class="modal-body">
+							<p>Are you really want to remove <br/><strong><span id="category-name"></span></strong>?</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary" onclick="removeCategory();">yes!</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			
+</div>
+		</div>
+	</div>
+<th:block th:replace="fragments/scripts :: common"></th:block>
+	<th:block th:replace="fragments/scripts :: datatable"></th:block>
+	<script th:src="@{../custom/js/category/list.js}"></script>
+</body>
+<div class="footer">
+		
+		<div class="container-fluid text-center">
+					   <div class="container"><large>Copyright &copy; Your Website 2022</large></div>
+	
+	</div>
+</html>
